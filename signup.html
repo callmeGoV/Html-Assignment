@@ -1,0 +1,110 @@
+
+
+<html>  
+    <head> 
+       <meta charset = "utf-8"> 
+       <title>HTML Signup Page</title> 
+       <style>         
+          #vid {
+              position: fixed;
+              right: 0; 
+              bottom: 0;
+              min-width: 100%; 
+              min-height: 100%;
+              width: auto; 
+              height: auto;
+              z-index: -100;
+          }    
+      </style>
+    </head> 
+   
+    <body > 
+        <video autoplay muted loop id = "vid">
+            <source src="Bee.mp4" type="video/mp4">
+        </video>
+       <header role = "banner"> 
+          <h1 align="center" >Welcome</h1> 
+       </header> 
+       
+    
+      
+    
+      
+          <center>
+             <form >
+                 Name:<br>
+                 <input type="text" id="name"  placeholder="Enter your name">
+                 <br><br>
+                 Email:<br>
+                 <input type="email" name="email" placeholder="example@example123.com">
+                 <br><br>
+                 <input type="radio" name="gender" value="male"> Male
+                 <input type="radio" name="gender" value="female"> Female<br><br>
+                 UserID:<br>
+                 <input type="text" id="userid"  placeholder="Enter your Username">
+                 <br><br>
+                 Password:<br>
+                 <input type="password" id="password1" placeholder="Enter your password">
+                 <br><br>
+                 Confirm Password:<br>
+                 <input type="password" name="password2" placeholder="Confirm your password">
+                 <br><br>
+                 
+                 <input type="button" onClick="signup()" value = "Signup"/> <br><br>
+                 <a href="login.html" >Back to Login Page</a>
+                 <br><br>
+               </form> 
+             </center>
+             <script >
+ 
+               //var users = JSON.parse(localStorage.getItem("users"));
+                 var users= new Object;
+                 var array=[];
+                 
+                 array=JSON.parse(localStorage.getItem("array"));
+                 if(array==null)
+                    array=[];
+
+                 
+                 //users = JSON.parse(localStorage.getItem("users"));
+                
+                  
+                    
+               function signup() {    alert(users);
+                
+                
+                 var n=document.getElementById('name').value;
+                 var uname = document.getElementById('userid').value;    
+                 var pass = document.getElementById('password1').value;  
+                   //console.log(uname);
+                   //console.log(pass);
+                   users['name']=n;
+                   users['userid']=uname;
+                   users['password']=pass;
+                   array.push(users);
+                   localStorage.setItem("array",JSON.stringify(array));
+ 
+                   /*users[uname]=pass;
+     
+                    console.log(users);
+     
+                   localStorage.setItem("users", JSON.stringify(users));
+   
+                     //document.getElementById("signup").reset();*/
+                      alert("Profile Saved");
+                      window.location.href = "login.html";
+     
+                 }
+ 
+ 
+             </script>
+          
+      
+     
+             
+ 
+    
+       
+    </body> 
+ </html>
+ 

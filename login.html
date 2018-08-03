@@ -1,0 +1,77 @@
+
+
+<html>  
+   <head> 
+      <meta charset = "utf-8"> 
+      <title>HTML Login Page</title> 
+      <style>         
+          #vid {
+              position: fixed;
+              right: 0; 
+              bottom: 0;
+              min-width: 100%; 
+              min-height: 100%;
+              width: auto; 
+              height: auto;
+              z-index: -100;
+          }    
+      </style>
+   </head> 
+  
+   <body >
+      <video autoplay muted loop id = "vid">
+          <source src="Bee.mp4" type="video/mp4">
+      </video> 
+      <header role = "banner" > 
+         <h1 align="center" >Hey User</h1> 
+      </header> 
+     
+   
+     
+   
+      <article> 
+         <section > <center>
+            <form  >
+                UserID:<br>
+                <input type="text" id="UserID"  placeholder="Enter your Username">
+                <br><br>
+                Password:<br>
+                <input type="password" id="password" placeholder="Enter your password">
+                <br><br>
+                <a href="signup.html" >Signup</a>
+                <br><br>
+                <input type="submit" name="button" value="Submit" onclick="login()">
+              </form> </center>
+         </section> 
+      </article> 
+
+      <script>var flag = 0;
+          var array=[];
+        function login() {
+            var uName = document.getElementById('UserID').value;
+            var uPass = document.getElementById('password').value;
+            //alert(uName);
+            //alert(uPass);
+            var users;
+           // users = JSON.parse(localStorage.getItem("users"));    
+           array=JSON.parse(localStorage.getItem("array"));
+            
+           for( var i=0;i<array.length;i++)
+           {//alert(array[i].userid);
+           //alert(array[i].password);
+        if (array[i].userid == uName && array[i].password == uPass) {
+            {alert("Welcome, " + array[i].name + ".");break;}
+                      }
+            }
+
+              //if(users.userid===uName && users.password===uPass)
+              // alert("Hey");
+            
+           
+        }
+        
+        
+      </script>
+   
+   </body> 
+</html>
